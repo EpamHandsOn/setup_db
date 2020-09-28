@@ -20,6 +20,7 @@
   args:
           chdir: /home/ubuntu/HandsOn/django/notejam/
 
+
 - name: Run server 
   command: ./manage.py runserver
   args:
