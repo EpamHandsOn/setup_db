@@ -1,0 +1,26 @@
+---
+# tasks file for setup_db
+
+
+- name: Copy db file into app dir.
+  copy:
+          src: /home/ubuntu/HandsOn/db_to_use/notejam.db 
+          dest: /home/ubuntu/HandsOn/django/notejam/notejam.db
+          remote_src: yes
+
+
+- name: Sync db with app
+  command: ./manage.py syncdb
+  args:
+          chdir: /home/ubuntu/HandsOn/django/notejam/
+
+
+- name: Migrate
+  command: ./manage.py migrate
+  args:
+          chdir: /home/ubuntu/HandsOn/django/notejam/
+
+- name: Run server 
+  command: ./manage.py runserver
+  args:
+          chdir: /home/ubuntu/HandsOn/django/notejam/
