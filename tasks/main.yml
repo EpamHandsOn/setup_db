@@ -21,7 +21,13 @@
           chdir: /home/ubuntu/HandsOn/django/notejam/
 
 
-- name: Run server 
-  command: ./manage.py runserver
-  args:
-          chdir: /home/ubuntu/HandsOn/django/notejam/
+- name: Copy systemd service file to system
+  copy:
+          src: /home/ubuntu/HandsOn/django/notejam/runserver.service
+          dest: /etc/systemd/system
+          owner: root
+          group: root
+          remote_src: yes
+  become: true
+  notify:
+    - Run server

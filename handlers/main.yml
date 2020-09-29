@@ -1,2 +1,10 @@
 ---
 # handlers file for setup_db
+
+
+- name: Run server
+  systemd:
+          name: runserver
+          state: started
+          enabled: yes
+  become: true
