@@ -2,7 +2,7 @@
 # tasks file for setup_db
 
 
-- name: Copy db file into app dir.
+- name: Copy db file into app dir
   copy:
           src: /home/ubuntu/HandsOn/db_to_use/notejam.db 
           dest: /home/ubuntu/HandsOn/django/notejam/notejam.db
@@ -23,7 +23,7 @@
 
 - name: Copy systemd service file to system
   copy:
-          src: /home/ubuntu/HandsOn/django/notejam/runserver.service
+          src: /home/ubuntu/utility/runserver.service
           dest: /etc/systemd/system
           owner: root
           group: root
